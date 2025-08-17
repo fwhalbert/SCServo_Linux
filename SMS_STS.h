@@ -72,6 +72,7 @@ public:
 	virtual int RegWritePosEx(u8 ID, s16 Position, u16 Speed, u8 ACC = 0);//异步写单个舵机位置指令(RegWriteAction生效)
 	virtual void SyncWritePosEx(u8 ID[], u8 IDN, s16 Position[], u16 Speed[], u8 ACC[]);//同步写多个舵机位置指令
 	virtual int WheelMode(u8 ID);//恒速模式
+	virtual int Mode(u8 ID, u8 mode); // Set mode: 0 (servo), 1 (wheel; closed loop) or 2 (wheel; open loop)
 	virtual int WriteSpe(u8 ID, s16 Speed, u8 ACC = 0);//恒速模式控制指令
 	virtual int EnableTorque(u8 ID, u8 Enable);//扭力控制指令
 	virtual int unLockEprom(u8 ID);//eprom解锁

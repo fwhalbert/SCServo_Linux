@@ -84,6 +84,18 @@ int SMS_STS::WheelMode(u8 ID)
 	return writeByte(ID, SMS_STS_MODE, 1);		
 }
 
+int SMS_STS::Mode(u8 ID, u8 mode)
+{
+	// Modes: 0 (servo mode), 1 (closed-loop) or 2 (open-loop)
+    // Mode 3 (stepper mode) is not implemented
+    if(!(mode == 0 || mode == 1 || mode == 2)){
+        Err = 1;
+        return -1;
+    }
+    Err = 0;
+    return writeByte(ID, SMS_STS_MODE, mode);		
+}
+
 int SMS_STS::WriteSpe(u8 ID, s16 Speed, u8 ACC)
 {
 	if(Speed<0){
